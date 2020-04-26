@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <ul>
+        {% for veiculo in veiculos %}
+            <li>
+                <a href = "{% url 'core_veiculo_update' veiculo.id %}">Proprietário: {{veiculo.proprietario}} -
+                                                                       Marca: {{veiculo.marca}} -
+                                                                       Placa: {{veiculo.placa}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+<form action="{% url 'core_veiculo_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit">Cadastrar</button>
+</form>
+</body>
+</html>

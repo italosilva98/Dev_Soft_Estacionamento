@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<h2> Updating Mov Rotativo: {{ rotativo }}</h2>
+
+<form action="{% url 'core_movrot_update' rotativo.id %}" method="POST">
+    {% csrf_token %}
+    {{ form.as_p }}
+
+    <button type="submit">Salvar</button>
+</form>
+
+<button type="submit"><a href="{% url 'core_movrot_delete' rotativo.id %}">Deletar</a></button>
+
+</body>
+</html>

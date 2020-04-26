@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<ul>
+        {% for mov in movrotativos %}
+        <li>
+            <a href="{% url 'core_movrot_update' mov.id %}">{{mov.veiculo}} - {{mov.total}}</a>
+        </li>
+        {% endfor %}
+</ul>
+
+        <form action="{% url 'core_movrot_novo' %}" method="POST">
+    {% csrf_token %}
+
+    {{form.as_p}}
+
+    <button type="submit">Cadastrar</button>
+</form>
+</body>
+</html>
